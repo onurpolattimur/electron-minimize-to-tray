@@ -4,6 +4,7 @@ let mainWindow;
 
 function createMainWindow() {
     let win = new BrowserWindow({
+        frame: false,
         width: 900,
         height: 493,
         icon: path.join(__dirname, 'cloud_fun.ico'),
@@ -25,12 +26,13 @@ function createMainWindow() {
     let tray = null;
     win.on('minimize', function (event) {
         event.preventDefault();
-        win.hide();
+        win.setSkipTaskbar(true);
         tray = createTray();
     });
 
     win.on('restore', function (event) {
         win.show();
+        win.setSkipTaskbar(false);
         tray.destroy();
     });
 

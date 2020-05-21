@@ -38,9 +38,11 @@
     display: flex;
     justify-content: flex-end;
     color: white;
+    -webkit-app-region: drag;
 }
 
 .Window-operations-container i {
+    -webkit-app-region: no-drag;
     display: block;
     padding: 5px 10px;
 }

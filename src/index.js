@@ -6,7 +6,7 @@ import WindowOperation from "./components/WindowOperation";
 
 ReactDOM.render(
     <React.StrictMode>
-        {/*<WindowOperation/>*/}
+        <WindowOperation/>
         <App/>
     </React.StrictMode>,
     document.getElementById('root')
