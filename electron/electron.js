@@ -16,7 +16,6 @@ function createMainWindow() {
         center: true,
         thickFrame: true,
     });
-    win.setBackgroundColor('#00000000');
 
 
     const url = "http://localhost:3002";
@@ -58,7 +57,7 @@ function createTray() {
     appIcon.on('double-click', function (event) {
         mainWindow.show();
     });
-    appIcon.setToolTip('Yeni Nesil Gaming Client');
+    appIcon.setToolTip('Tray Tutorial');
     appIcon.setContextMenu(contextMenu);
     return appIcon;
 }
