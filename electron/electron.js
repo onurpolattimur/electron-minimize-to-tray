@@ -6,13 +6,11 @@ function createMainWindow() {
     let win = new BrowserWindow({
         width: 900,
         height: 493,
-        icon: path.join(__dirname, 'yn.ico'),
+        icon: path.join(__dirname, 'cloud_fun.ico'),
         transparent: true,
         resizable: false,
         webPreferences: {
             nodeIntegration: true,
-            webSecurity: false
-
         },
         autoHideMenuBar: true,
         center: true,
@@ -25,16 +23,16 @@ function createMainWindow() {
 
     win.loadURL(url).then(() => console.log("URL loaded."));
 
-    let appIcon = null;
+    let tray = null;
     win.on('minimize', function (event) {
         event.preventDefault();
         win.hide();
-        appIcon = createTray();
+        tray = createTray();
     });
 
     win.on('restore', function (event) {
         win.show();
-        appIcon.destroy();
+        tray.destroy();
     });
 
 
@@ -42,15 +40,15 @@ function createMainWindow() {
 }
 
 function createTray() {
-    let appIcon = new Tray(path.join(__dirname, "yn.ico"));
+    let appIcon = new Tray(path.join(__dirname, "cloud_fun.ico"));
     const contextMenu = Menu.buildFromTemplate([
         {
-            label: 'Göster', click: function () {
+            label: 'Show', click: function () {
                 mainWindow.show();
             }
         },
         {
-            label: 'Çıkış', click: function () {
+            label: 'Exit', click: function () {
                 app.isQuiting = true;
                 app.quit();
             }
